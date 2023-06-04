@@ -1,0 +1,12 @@
+#memeImage {
+    height: 200px;
+    width: 80%;
+    display: none;
+    margin-left: 10%;
+}
+
+.profileImage {
+    width: 80%;
+    height: 150px;
+    margin-left: 10%;
+}
