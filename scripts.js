@@ -2,6 +2,8 @@
 var pricePerMaterial; 
 var discountPercent;
 var numMaterials;
+var materialTier;
+var materialEnchantment;
 
 //Required Info
 var averageLength;
@@ -12,12 +14,13 @@ var tier;
 function SetVariables() 
 {
     pricePerMaterial = document.getElementById("pricePerMaterial").value;
-    tier = document.getElementById("tierEnchantment").value;
     discountPercent = document.getElementById("discountPercent").value;
     numMaterials = document.getElementById("numMaterials").value;
     materialType = document.getElementById("materialSelection").value;
     cityName = document.getElementById("citySelection").value;
     averageLength = document.getElementById("timeRangeSelection").value;
+    materialTier = document.getElementById("materialTier").value;
+    materialEnchantment = document.getElementById("materialEnchantment").value;
 
 
     CalculateSalePrice();
@@ -36,8 +39,8 @@ function CalculateSalePrice(price, discount, numMats)
     calculatedPricePerMaterial = pricePerMaterial * calculatedDiscountPercent;
     totalPrice = calculatedPricePerMaterial * numMaterials;
 
-    let averagePriceString = averageLength + " average price in " + cityName + " for " + tier + " " + materialType + " is: " + FormatNumber(pricePerMaterial);
-    let calculationString = tier + " " + materialType + " at discounted rate of " + FormatNumber(calculatedDiscountPercent) + "% is: " + FormatNumber(calculatedPricePerMaterial); 
+    let averagePriceString = averageLength + " average price in " + cityName + " for " + materialTier + "." + materialEnchantment + " "+ materialType + " is: " + FormatNumber(pricePerMaterial);
+    let calculationString = materialTier + "." + materialEnchantment + " " + materialType + " at discounted rate of " + FormatNumber(calculatedDiscountPercent) + "% is: " + FormatNumber(calculatedPricePerMaterial); 
     let saleTotalString = numMaterials + " " + tier + " " + materialType + " at " + FormatNumber(calculatedPricePerMaterial) + " each is: " + FormatNumber(totalPrice);
     
     let outputString1 = averagePriceString;
