@@ -4,6 +4,7 @@ var discountPercent;
 var numMaterials;
 var materialTier;
 var materialEnchantment;
+var imageString;
 
 //Required Info
 var averageLength;
@@ -17,11 +18,24 @@ function SetVariables()
     discountPercent = document.getElementById("discountPercent").value;
     numMaterials = document.getElementById("numMaterials").value;
     materialType = document.getElementById("materialSelection").value;
+    materialType = materialType.toUpperCase();
     cityName = document.getElementById("citySelection").value;
     averageLength = document.getElementById("timeRangeSelection").value;
     materialTier = document.getElementById("materialTier").value;
     materialEnchantment = document.getElementById("materialEnchantment").value;
 
+    console.log(materialEnchantment)
+
+    if (materialEnchantment > 0) {
+    imageString = "https://render.albiononline.com/v1/item/T" + materialTier + "_" + materialType + "_LEVEL" + materialEnchantment + "@" + materialEnchantment + ".png";
+    }
+    else 
+    {
+        imageString = "https://render.albiononline.com/v1/item/T" + materialTier + "_" + materialType + ".png";
+    }
+    console.log(imageString);
+
+    document.getElementById("renderedImage").setAttribute('src', imageString);
 
     CalculateSalePrice();
     ToggleImage(true);

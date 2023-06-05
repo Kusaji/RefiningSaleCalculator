@@ -1,8 +1,8 @@
 #memeImage {
-    height: 200px;
-    width: 80%;
+    height: 100px;
+    width: 40%;
     display: none;
-    margin-left: 10%;
+    margin-left: 30%;
     margin-bottom: 10px;
 }
 
@@ -10,4 +10,14 @@
     width: 80%;
     height: 150px;
     margin-left: 10%;
+    margin-bottom: 25px;
+}
+
+.materialImage {
+    height: 150px;
+}
+
+.submitButton {
+    display: block;
+    width: 100%;
 }
