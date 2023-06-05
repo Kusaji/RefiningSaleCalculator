@@ -47,15 +47,23 @@ function CalculateSalePrice(price, discount, numMats)
     let totalPrice;
     let calculatedPricePerMaterial;
     let calculatedDiscountPercent;
+    let saleTotalString;
 
     calculatedDiscountPercent = 1.0 - discountPercent;
 
     calculatedPricePerMaterial = pricePerMaterial * calculatedDiscountPercent;
     totalPrice = calculatedPricePerMaterial * numMaterials;
 
-    let averagePriceString = averageLength + " average price in " + cityName + " for " + materialTier + "." + materialEnchantment + " "+ materialType + " is: " + FormatNumber(pricePerMaterial);
-    let calculationString = materialTier + "." + materialEnchantment + " " + materialType + " at discounted rate of " + FormatNumber(calculatedDiscountPercent) + "% is: " + FormatNumber(calculatedPricePerMaterial); 
-    let saleTotalString = numMaterials + " " + tier + " " + materialType + " at " + FormatNumber(calculatedPricePerMaterial) + " each is: " + FormatNumber(totalPrice);
+    let averagePriceString = averageLength + " average price in " + cityName + " for " + materialTier + "." + materialEnchantment + " "+ materialType.toLowerCase() + " is: " + FormatNumber(pricePerMaterial);
+    let calculationString = "Tier " + materialTier + "." + materialEnchantment + " " + materialType.toLowerCase() + " at discounted rate of " + FormatNumber(calculatedDiscountPercent) + "% is: " + FormatNumber(calculatedPricePerMaterial); 
+    
+    if (materialEnchantment > 0) {
+    saleTotalString = numMaterials + " Tier " +  materialTier + "." + materialEnchantment + " " + materialType.toLowerCase() + " at " + FormatNumber(calculatedPricePerMaterial) + " each is: " + FormatNumber(totalPrice);
+    }
+    else 
+    {
+    saleTotalString = numMaterials + " Tier " + materialTier + " " + materialType.toLowerCase() + " at " + FormatNumber(calculatedPricePerMaterial) + " each is: " + FormatNumber(totalPrice);
+    }
     
     let outputString1 = averagePriceString;
     let outputString2 = calculationString;
